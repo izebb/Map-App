@@ -1,0 +1,18 @@
+body{
+	font-family: 'Fira Sans', sans-serif;
+}
+.sidebar-layout {
+    position: fixed;
+    height: 100%;
+    width: 60%;
+    left:0;
+    background-color: lighten(#EEE, 3%);
+    padding: 1.5em;
+}
+
+.map-layout {
+    position: fixed;
+    height: 100%;
+    width: 40%;
+    right: 0;
+}

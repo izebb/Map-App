@@ -1,0 +1,29 @@
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+.listing-image {
+    position: relative;
+    &:before {
+        content: " ";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(#000, 0.1);
+        left: 0;
+        top: 0;
+        @include transition(background-color 150ms ease-out);
+    }
+    
+}
+
+.listing-info{
+    padding: 1.5em;
+}
+
+
+.listing{
+    margin-bottom: 40px;
+}
