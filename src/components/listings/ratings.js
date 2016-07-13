@@ -1,8 +1,8 @@
 import "./styles/ratings.scss";
 
-import React from 'react';
+import React, { Component } from 'react';
 
-class Ratings extends React.Component {
+class Ratings extends Component {
 
     render() {
 

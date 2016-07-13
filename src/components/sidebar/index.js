@@ -9,7 +9,7 @@ class SideBar extends React.Component {
     render() {
     	return (
     		<div  className="sidebar">
-    			<Listings />
+    			<Listings spaces={this.props.spaces} />
     		</div>
     	);
     }

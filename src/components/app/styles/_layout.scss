@@ -1,13 +1,15 @@
-body{
-	font-family: 'Fira Sans', sans-serif;
+body {
+    font-family: 'Fira Sans', sans-serif;
 }
+
 .sidebar-layout {
     position: fixed;
     height: 100%;
     width: 60%;
-    left:0;
+    left: 0;
     background-color: lighten(#EEE, 3%);
     padding: 1.5em;
+    overflow: auto;
 }
 
 .map-layout {
@@ -15,4 +17,11 @@ body{
     height: 100%;
     width: 40%;
     right: 0;
+}
+
+.loader {
+    width: 70px;
+    height: 70px;
+    margin: 10em auto;
+   
 }

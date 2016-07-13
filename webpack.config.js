@@ -4,7 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: path.resolve('src/'),
-    entry: ['babel-polyfill', './js/app'],
+    entry: ['babel-polyfill', './index'],
     devtools: "eval-source-map",
     output: {
         publicPath: "/public/assets/",
