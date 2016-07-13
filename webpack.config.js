@@ -1,5 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 module.exports = {
     context: path.resolve('src/'),
     entry: ['babel-polyfill', './js/app'],
@@ -25,6 +27,7 @@ module.exports = {
         }, {
             test: /\.js$/,
             include: path.resolve(__dirname, "src/"),
+            exclude: "/node_modules",
             loader: "babel-loader",
             query: {
                 plugins: ['transform-runtime'],
