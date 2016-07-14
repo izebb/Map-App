@@ -1,4 +1,4 @@
-import { List, Map } from "Immutable"
+import { List, Map } from "immutable"
 import { CONSTANTS } from "../actions/constants"
 
 
