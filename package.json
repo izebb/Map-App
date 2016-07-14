@@ -4,7 +4,8 @@
   "description": "Simple map list app with reactjs ",
   "main": "app.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --inline",
+    "start": "set NODE_ENV='production' & NODE_ENV=\"production\" & node ./node_modules/webpack-dev-server/bin/webpack-dev-server --inline",
+    "build": "set NODE_ENV='production' & NODE_ENV=\"production\"  & webpack ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

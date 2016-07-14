@@ -9,10 +9,12 @@ class Listing extends React.Component {
     render() {
         const data = this.props.data;
         const address = data.address.join("-");
+        let selectedClass = data.isSelected ? "selected": "unselected";
+        const _classes= `listing  ${selectedClass}`;
     	return (
-    			<div className="listing">
+    			<div className={_classes}>
 	    			<ListingImage src={data.image_urls[0]} />
-	    			<ListingInfo name={data.location_name} venue={data.location_city} address={address} reviews={data.review_count}/>
+	    			<ListingInfo {...data}/>
 	    		</div>
     	);
     }

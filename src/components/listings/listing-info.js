@@ -3,8 +3,8 @@ import React from 'react';
 import Ratings from "./ratings";
 
 class ListingInfo extends React.Component {
-
     render() {
+
     	return (
     		<div  className="listing-info">
     			<h4 className="listing-name">{this.props.name}</h4>
@@ -12,7 +12,7 @@ class ListingInfo extends React.Component {
 						<div>
                             <span className="listing-city">{this.props.address}</span>
     						<span className="listing-reviews">
-    							<Ratings reviews={this.props.reviews} />
+    							<Ratings rating={this.props.rating} reviews={this.props.review_count} />
         					</span>
                         </div>
                         <div>

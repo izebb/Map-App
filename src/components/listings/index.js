@@ -1,5 +1,3 @@
-import "./styles/listings.scss";
-	
 import React from 'react';
 import Listing from './listing';
 

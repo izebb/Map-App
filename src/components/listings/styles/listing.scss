@@ -1,3 +1,4 @@
+// listings
 @mixin transition($transition...) {
     -webkit-transition: $transition;
     -o-transition: $transition;
@@ -26,4 +27,12 @@
 
 .listing{
     margin-bottom: 40px;
+        @include transition(all  150ms ease-out);
+}
+
+.is-selection {
+    .unselected {
+        opacity: 0.3;
+    }
+
 }

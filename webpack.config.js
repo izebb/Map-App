@@ -1,6 +1,6 @@
 var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 
 module.exports = {
     context: path.resolve('src/'),
@@ -14,20 +14,20 @@ module.exports = {
     devServer: {
         contentBase: "public"
     },
-    watch: process.env.NODE_ENV === "production" ? false : true,
+    watch: process.env.NODE_ENV  === "production" ? false : true,
     module: {
         loaders: [{
             test: /\.css$/,
-            include: path.resolve( "src/"),
+            exclude: /node_modules/,
+            include: path.resolve("src/"),
             loader: ExtractTextPlugin.extract(["css"])
         }, {
             test: /\.scss$/,
-            include: path.resolve("src/"),
+            exclude: /node_modules/,
             loader: ExtractTextPlugin.extract(["css", "sass"])
         }, {
             test: /\.js$/,
-            include: path.resolve(__dirname, "src/"),
-            exclude: "/node_modules",
+            exclude: /node_modules/,
             loader: "babel-loader",
             query: {
                 plugins: ['transform-runtime'],
@@ -39,7 +39,15 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     plugins: [
-        new ExtractTextPlugin("styles.css")
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new ExtractTextPlugin("styles.css"),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ]
 
 }

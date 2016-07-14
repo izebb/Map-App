@@ -33,8 +33,7 @@ class MapSection extends React.Component {
 													        lng: point.longitude,
 													        key: point.name
 				          					 		}} 
-
-				          					 		 onClick={this.handleClick.bind(this,space.id )}
+				          					 		 	onClick={this.props.onSelectSpace.bind(this, space.id )}
 	          					 						/>
 
 			          					 		})

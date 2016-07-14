@@ -1,3 +1,5 @@
+// Star rating form 
+
 .star-rating{
 	font-size: 0;
 }
@@ -22,13 +24,14 @@
 .star-rating__input{
 	display: none;
 }
-.star-rating__ico:hover:before,
-.star-rating__ico:hover ~ .star-rating__ico:before,
-.star-rating__input:checked ~ .star-rating__ico:before
-{
-	content: "\f005";
-}
 
 .star-reviews{
 	display: inline-block;
+	margin-right: 10px;
+}
+
+.star-rating{
+	position: relative;
+	top: 7px;
+	left: 10px
 }

@@ -5,9 +5,9 @@ import { connect } from "react-redux"
 import Header from "../header"
 import SideBar from "../sidebar"
 import MapSection from "../map-section"
-import { fetchSpaces } from "../../actions/"
+import { fetchSpaces, selectedSpace } from "../../actions/"
 
-
+// App container  component
 class App extends Component {
 	constructor(props) {
 	    super(props)
@@ -15,7 +15,14 @@ class App extends Component {
     componentDidMount() {
     	const { dispatch } = this.props;
         dispatch(fetchSpaces());
+        this.onSelectSpace = this.onSelectSpace.bind(this)
     }
+    onSelectSpace(id){
+    	const { dispatch } = this.props;
+    	dispatch(selectedSpace(id));
+
+    }
+
     render() {
 	    const _loader = {
 	    	__html: `<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -31,7 +38,7 @@ class App extends Component {
 
         return (
         	this.props.spaces.data ?
-        		<div>
+        		<div  className={this.props.spaces.selection ? "is-selection": ""}>
 		            <Header/ >
 		        	<section className = "sidebar-layout" >
 			        	{ sideBar }
@@ -39,7 +46,7 @@ class App extends Component {
 			       <section className = "map-layout" >
 			       		{
 			       			this.props.spaces.isFetching ===  false?
-							<MapSection data={this.props.spaces.data} />: ""
+							<MapSection data={this.props.spaces.data}   onSelectSpace = {this.onSelectSpace}/>: ""
 						}
 					</section>
 	            </div>
@@ -53,5 +60,7 @@ class App extends Component {
 const mapStateToProps = (state)=>{
     return Object.assign({}, state);
 };
+
+
 
 export default connect(mapStateToProps)(App);
